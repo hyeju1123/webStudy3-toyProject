@@ -1,0 +1,46 @@
+.Write {
+    padding: 20px;
+    text-align: center;
+}
+
+.Write div {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+#title_txt {
+    width: 70%;
+    padding-bottom: 8px;
+    border: none;
+    font-size: 25px;
+    border-bottom: solid 1px #ababab;
+    font-weight: bold;
+}
+
+#title_txt:focus { outline : none; }
+
+#link_txt {
+    width: 70%;
+    border: none;
+    font-size: 20px;
+    border-bottom: solid 1px #ababab;
+}
+
+#link_txt:focus { outline : none; }
+
+#ex_txt {
+    width: 70%;
+    font-size: 14px;
+    height: 150px;
+    border-color: #ababab;
+}
+
+#date {
+    text-align: center;
+    width: 25%;
+}
+
+#submit_btn {
+    text-align: right;
+    padding-right: 12%;
+}

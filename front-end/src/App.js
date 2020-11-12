@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Head } from './inc';
+import { Main, Service, Qna, Write } from './page';
 import './App.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-function App() {
-  const [message, setMessage] = useState("");
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
 
-  useEffect(() => {
-    fetch('api/hello')
-      .then(response => response.text())
-      .then(message => {
-        setMessage(message);
-      });
-  }, [])
+  render() {
+    return(
+      <div>
+        <div>
+          <Head/>
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">{message}</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        TEST TEST TEST!!!
-      </header>
-    </div>
-  );
+        </div>
+        <BrowserRouter>
+          <Route path="/" component={Main} exact/>
+          <Route path="/service" component={Service}/>
+          <Route path="/qna" component={Qna}/>
+          <Route path="/write" component={Write}/>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
 
 export default App;
