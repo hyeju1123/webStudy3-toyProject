@@ -1,17 +1,33 @@
-import React, {useEffect, useState} from 'react';
-import { Route } from 'react-router-dom';
-import LogIn from './authentication/LogIn';
-import SignUp from './authentication/SignUp';
+
+import React, { Component } from 'react';
+import { Head } from './inc';
+import { Main, Service, Qna, Write } from './page';
 import './App.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-function App() {
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
 
-  return (
-    <div>
-      <Route path="/login" component={LogIn} />
-      <Route path="/signup" component={SignUp} />
-    </div>
-  );
+  render() {
+    return(
+      <div>
+        <div>
+          <Head/>
+
+        </div>
+        <BrowserRouter>
+          <Route path="/" component={Main} exact/>
+          <Route path="/service" component={Service}/>
+          <Route path="/qna" component={Qna}/>
+          <Route path="/write" component={Write}/>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
 
 export default App;
