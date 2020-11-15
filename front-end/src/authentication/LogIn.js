@@ -3,20 +3,20 @@ import './LogIn.css'
 
 function LogIn() {
 
-    const [message, setMessage] = useState("");
+    //const [message, setMessage] = useState("");
 
-    useEffect(() => {
-        fetch('/test')
-            .then(response => response.text())
-            .then(message => {
-                setMessage(message);
-            });
-    }, [])
+    // useEffect(() => {
+    //     fetch('/test')
+    //         .then(response => response.text())
+    //         .then(message => {
+    //             setMessage(message);
+    //         });
+    // }, [])
 
     return (
         <div className="login-template">
             <div className="title">
-                User Login, {message}
+                User Login
             </div>
             <form action="/login" method="post">
                 <div className="input-wrapper">
