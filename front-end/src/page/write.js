@@ -3,46 +3,46 @@ import './main.css'
 
 class write extends Component {
 
-    state = {
-        message: "",
-        data: {
-            title: "first data",
-            url: "http://localhost:8080/api/write",
-            content: "my content"
-        }
-    }
+    // state = {
+    //     message: "",
+    //     data: {
+    //         title: "first data",
+    //         url: "http://localhost:8080/api/write",
+    //         content: "my content"
+    //     }
+    // }
 
     constructor(props) {
         super(props);
-        this.testPost = this.testPost.bind(this);
+        //this.testPost = this.testPost.bind(this);
     }
 
-    componentDidMount() {
-        fetch("/api/write")
-            .then(response => response.text())
-            .then(hello => {
-                this.setState({
-                    message: hello
-                })
-            });
-    }
+    // componentDidMount() {
+    //     fetch("/api/write")
+    //         .then(response => response.text())
+    //         .then(hello => {
+    //             this.setState({
+    //                 message: hello
+    //             })
+    //         });
+    // }
 
-    testPost() {
+    // testPost() {
     
-        fetch('http://localhost:8080/api/write', 
-            {
-                method: 'POST', 
-                credentials: 'include',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Credentials': true
-                },
-                body: JSON.stringify(this.state.data) 
-            }
-        )
-        .then(res => console.log(res));
-    }
+    //     fetch('http://localhost:8080/api/write', 
+    //         {
+    //             method: 'POST', 
+    //             credentials: 'include',
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json',
+    //                 'Access-Control-Allow-Credentials': true
+    //             },
+    //             body: JSON.stringify(this.state.data) 
+    //         }
+    //     )
+    //     .then(res => console.log(res));
+    // }
 
   render() {
 
@@ -59,7 +59,7 @@ class write extends Component {
                     <textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>
                 </div>
                 <div>
-                    {this.state.message}, 시작일자&nbsp;&nbsp;
+                    시작일자&nbsp;&nbsp;
                     <input type="date" id='date'/>&nbsp;&nbsp;
                     마감일자&nbsp;&nbsp;
                     <input type="date" id='date'/>
@@ -69,7 +69,7 @@ class write extends Component {
                     <button>취소</button>
                 </div>
             </form>
-            <button onClick={this.testPost}>testpost</button>
+            {/* <button onClick={this.testPost}>testpost</button> */}
         </div>
     );
   }
