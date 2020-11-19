@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class main extends Component {
+class Main extends Component {
     constructor(props) {
         super(props)
     }
@@ -14,4 +14,4 @@ class main extends Component {
     }
 }
 
-export default main;
+export default Main;

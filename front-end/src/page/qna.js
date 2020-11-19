@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class qna extends Component {
+class QnA extends Component {
 
   render() {
     return (
@@ -11,4 +11,4 @@ class qna extends Component {
   }
 }
 
-export default qna;
+export default QnA;

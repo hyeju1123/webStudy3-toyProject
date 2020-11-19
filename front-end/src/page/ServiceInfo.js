@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class service extends Component {
+class ServiceInfo extends Component {
 
   render() {
     return (
@@ -11,4 +11,4 @@ class service extends Component {
   }
 }
 
-export default service;
+export default ServiceInfo;

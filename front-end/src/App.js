@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Head } from './inc';
-import { Main, Service, Qna, Write } from './page';
+import { Main, ServiceInfo, QnA, Write } from './page';
+import SignUp from './authentication/SignUp';
+import LogIn from './authentication/LogIn';
 import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -16,14 +18,13 @@ class App extends Component {
       <div>
         <div>
           <Head/>
-
         </div>
-        <BrowserRouter>
           <Route path="/" component={Main} exact/>
-          <Route path="/service" component={Service}/>
-          <Route path="/qna" component={Qna}/>
+          <Route path="/serviceinfo" component={ServiceInfo}/>
+          <Route path="/qna" component={QnA}/>
           <Route path="/write" component={Write}/>
-        </BrowserRouter>
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
       </div>
     )
   }

@@ -1,4 +1,4 @@
-export { default as Main } from './main';
-export { default as Service } from './service';
-export { default as Qna } from './qna';
-export { default as Write } from './write';
+export { default as Main } from './Main';
+export { default as ServiceInfo } from './ServiceInfo';
+export { default as QnA } from './QnA';
+export { default as Write } from './Write';
