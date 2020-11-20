@@ -50,6 +50,7 @@
     "postcss-safe-parser": "5.0.2",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
+    "react-day-picker": "7.4.8",
     "react-dev-utils": "^11.0.0",
     "react-dom": "^17.0.1",
     "react-refresh": "^0.8.3",
@@ -73,7 +74,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://127.0.0.1:8080",
+  "secure": false,
   "eslintConfig": {
     "extends": [
       "react-app",
