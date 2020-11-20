@@ -1,5 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./main.css";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class write extends Component {
   constructor(props) {
@@ -9,8 +12,8 @@ class write extends Component {
       title: "",
       link: "",
       content: "",
-      startDate: null,
-      endDate: null,
+      startDate: new Date(),
+      endDate: new Date(),
     };
   }
 
@@ -22,6 +25,14 @@ class write extends Component {
     e.preventDefault();
     console.log(this.state);
   };
+
+  onChangeStartDate(date) {
+    this.setState({ startDate: date });
+  }
+
+  onChangeEndDate(date) {
+    this.setState({ endDate: date });
+  }
 
   // state = {
   //     message: "",
@@ -65,7 +76,10 @@ class write extends Component {
   // }
 
   render() {
-    const { title, link, content, startDate, endDate } = this.state;
+    const { title, link, content } = this.state;
+    const { startDate } = this.state.startDate;
+    const { endDate } = this.state.endDate;
+
     return (
       <div className="write">
         <form action="/api/write" method="post" onSubmit={this.submitHandler}>
@@ -100,18 +114,34 @@ class write extends Component {
           </div>
           <div>
             시작일자&nbsp;&nbsp;
-            <input
+            {/* <input
               type="date"
               id="date"
               value={startDate}
               onChange={this.changeHandler}
+            /> */}
+            <DatePicker
+              id="startDate"
+              name="startDate"
+              value={startDate}
+              dateFormat="yyyy-MM-dd"
+              selected={this.state.startDate}
+              onChange={(date) => this.onChangeStartDate(date)}
             />
             &nbsp;&nbsp; 마감일자&nbsp;&nbsp;
-            <input
+            {/* <input
               type="date"
               id="date"
               value={endDate}
               onChange={this.changeHandler}
+            /> */}
+            <DatePicker
+              id="endDate"
+              name="endDate"
+              value={endDate}
+              dateFormat="yyyy-MM-dd"
+              selected={this.state.endDate}
+              onChange={(date) => this.onChangeEndDate(date)}
             />
           </div>
           <div id="submit_btn">
