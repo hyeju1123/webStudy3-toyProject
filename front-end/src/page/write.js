@@ -12,10 +12,10 @@ class write extends Component {
     //     }
     // }
 
-    constructor(props) {
-        super(props);
-        //this.testPost = this.testPost.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.testPost = this.testPost.bind(this);
+    // }
 
     // componentDidMount() {
     //     fetch("/api/write")
@@ -53,16 +53,16 @@ class write extends Component {
                     <input type='text' id='title_txt' name='title' placeholder='제목'/>
                 </div>
                 <div>
-                    <input type='url' id='link_txt' name='link' placeholder='링크'/>
+                    <input type='url' id='link_txt' name='url' placeholder='링크'/>
                 </div>
                 <div>
                     <textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>
                 </div>
                 <div>
                     시작일자&nbsp;&nbsp;
-                    <input type="date" id='date'/>&nbsp;&nbsp;
+                    <input type="date" name="start_date" id='date'/>&nbsp;&nbsp;
                     마감일자&nbsp;&nbsp;
-                    <input type="date" id='date'/>
+                    <input type="date" name="end_date" id='date'/>
                 </div>
                 <div id="submit_btn">
                     <button type="submit">저장</button>&nbsp;&nbsp;

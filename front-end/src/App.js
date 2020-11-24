@@ -4,7 +4,7 @@ import { Head } from './inc';
 import { Main, Service, Qna, Write } from './page';
 import LogIn from './authentication/LogIn';
 import './App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
