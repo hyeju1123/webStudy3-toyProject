@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 class header extends Component {
 
   render() {
     return (
-        <div class='header_grid'>
+        <div className='header_grid'>
             <div> </div>
             <div className='acenter'>
                 
