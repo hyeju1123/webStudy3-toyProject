@@ -8,9 +8,8 @@ function ListItem({board_id, title, start_date, end_date}) {
         <Link to={{
             pathname:"/detail",
             search:`?board_id=${board_id}`
-        }} style={{ textDecoration: 'none' }}>
+        }} style={{ textDecoration: 'none', color: 'black'}}>
             <div className="list-item">
-                
                 <div className="id">{board_id}</div>
                 <div className="column-title">{title}</div>
                 <div className="member">작성자</div>
