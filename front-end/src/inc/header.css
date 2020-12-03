@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+.header_grid {
+    display: grid;
+    border-top : solid 3px #232B43;
+    border-bottom : solid 3px #232B43;
+  }
+  
+.acenter { 
+  padding-top: 15px;
+  background-color: #e0eaf6;
+  text-align : center; 
+}
+
+.btn_cursor {
+  cursor : pointer;
+}
+
+.link_tit {
+  font-size: 27pt;
+  font-family: 'Gamja Flower', cursive;
+  color : black;
+  text-decoration: none;
+}
+
+.link_service {
+  text-align : end;
+  padding-right: 10px;
+}
+
+.link_button {
+  text-align : end;
+  margin-top: -60px;
+  padding-right: 10px;
+}
+
+.link_select {
+  color : black;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 18pt;
+  text-decoration: none;
+}
+
+.link_survey {
+  color : white;
+  font-family: 'Gamja Flower', cursive;
+  background-color: #232B43;
+  padding : 10px;
+  font-size: 20pt;
+  text-decoration: none;
+}
