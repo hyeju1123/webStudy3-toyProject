@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { Link, Route } from 'react-router-dom';
-import Write from './write';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import qs from 'qs';
 import './read.css';
@@ -9,10 +8,6 @@ export function useFetch(url, id) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     async function fetchUrl() {
-        // await axios.get(url+'?board_id=1').then(response => {
-        //     console.log(response)
-        //     setData(response.data);
-        // });
         await axios.get(`${url}?board_id=${id}`).then(response => {
             console.log(response)
             setData(response.data);
@@ -55,20 +50,6 @@ const Detail = ({ location }) => {
     } else {
         return (
             <div className='Read'>
-                {/* <div>
-                    <div>{data.title}</div>
-                    <div>{data.url}</div>
-                    <div>{data.content}</div>
-                    <div>{data.startDate}</div>
-                    <div>{data.endDate}</div>
-                    <Link to={{
-                        pathname:"/write",
-                        search:`?board_id=${query.board_id}`
-                    }}>
-                        수정하기    
-                    </Link>
-                    
-                </div> */}
                 <div className="list-title">
                 폼 게시판
                 </div>

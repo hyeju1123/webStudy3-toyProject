@@ -27,8 +27,7 @@ class App extends Component {
           <Route path="/service" component={Info}/>
           <Route path="/write" component={Write}/>
           <Route path="/login" component={LogIn} />
-          {/* <Route path="/detail/" component={Detail} /> */}
-          <Route path="/detail/" component={Detail} />
+          <Route path="/detail" component={Detail} />
       </div>
     )
   }

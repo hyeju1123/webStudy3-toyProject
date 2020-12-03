@@ -61,16 +61,12 @@ function Write({ location }) {
     return (
         <div className='Write'>
             <form action="/api/write" method="post">
-                { 
-                    // data && location.search ? 
-                    // <input type='hidden' name="boardId" value={data.boardId} /> :
-                    // console.log(data)
-                    data && location.search && <input type='hidden' name="boardId" value={data.boardId} /> 
-                }
+                    { 
+                        data && location.search && <input type='hidden' name="boardId" value={data.boardId} /> 
+                    }
                 <div>
                     {
                         data && location.search ? 
-                        //<div>{data.title}</div> :
                         <input type='text' id='title_txt' name='title' value={data.title} onChange={handleChange} /> :
                         <input ref={inputRef.current[0]} type='text' id='title_txt' name='title' placeholder='제목'/> 
                     }
@@ -89,7 +85,6 @@ function Write({ location }) {
                         <textarea id='ex_txt' name='content' value={data.content} onChange={handleChange}></textarea> :
                         <textarea ref={inputRef.current[2]} id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>    
                     }
-                    {/* <textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea> */}
                 </div>
                 <div>
                     시작일자&nbsp;&nbsp;
@@ -99,14 +94,12 @@ function Write({ location }) {
                         <input ref={inputRef.current[3]} type="date" name="startDate" id='date'/>
                     }
                     &nbsp;&nbsp;
-                    {/* <input type="date" name="startDate" id='date'/>&nbsp;&nbsp; */}
                     마감일자&nbsp;&nbsp;
                     {
                         data && location.search ? 
                         <input type="date" name="endDate" id='date' value={data.endDate} onChange={handleChange} /> :
                         <input ref={inputRef.current[4]} type="date" name="endDate" id='date'/>    
                     }
-                    {/* <input type="date" name="endDate" id='date'/> */}
                 </div>
                 <div id="submit_btn">
                     <button type="submit">저장</button>&nbsp;&nbsp;

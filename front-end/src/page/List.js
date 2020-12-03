@@ -48,23 +48,6 @@ function List() {
                         />
                     )
                 )}
-                {/* {data.map(
-                    ({board_id, title, start_date, end_date}) => (
-                        <Route
-                            path="/"
-                            exact
-                            render={() => 
-                                <ListItem
-                                    board_id={board_id}
-                                    title={title}
-                                    start_date={start_date}
-                                    end_date={end_date}
-                                    history={history}
-                                />
-                            }
-                        />
-                    )
-                )} */}
             </section>
             
         </main>
