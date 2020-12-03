@@ -11,10 +11,29 @@
         INSERT INTO board (
             <include refid="boardColumns"></include>
         ) VALUES (
-            #{board_id}, #{title}, #{url}, #{content}, #{start_date}, #{end_date}
+            #{boardId}, #{title}, #{url}, #{content}, #{startDate}, #{endDate}
         )
     </insert>
-    <select id="getPosting" resultType="java.util.HashMap">
-        SELECT * FROM board;
+    <select id="selectPostingDetail" parameterType="long" resultType="PostingDTO">
+        SELECT
+            <include refid="boardColumns" />
+        FROM
+            board
+        WHERE
+            board_id = #{board_id}
     </select>
+    <select id="getPosting" resultType="java.util.HashMap">
+        SELECT
+            <include refid="boardColumns" />
+        FROM board;
+    </select>
+    <update id="updatePosting" parameterType="PostingDTO">
+        update board set
+            title = #{title},
+            url = #{url},
+            content = #{content},
+            start_date = #{startDate},
+            end_date = #{endDate}
+        where board_id = #{boardId}
+    </update>
 </mapper>

@@ -1,78 +1,120 @@
-import React, { Component } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './main.css'
+import axios from 'axios';
+import qs from 'qs';
 
-class write extends Component {
 
-    // state = {
-    //     message: "",
-    //     data: {
-    //         title: "first data",
-    //         url: "http://localhost:8080/api/write",
-    //         content: "my content"
-    //     }
-    // }
 
-    // constructor(props) {
-    //     super(props);
-    //     this.testPost = this.testPost.bind(this);
-    // }
+function Write({ location }) {
 
-    // componentDidMount() {
-    //     fetch("/api/write")
-    //         .then(response => response.text())
-    //         .then(hello => {
-    //             this.setState({
-    //                 message: hello
-    //             })
-    //         });
-    // }
+    const query = qs.parse(location.search, {
+        ignoreQueryPrefix: true
+    });
 
-    // testPost() {
+    const [data, setData] = useState(null);
     
-    //     fetch('http://localhost:8080/api/write', 
-    //         {
-    //             method: 'POST', 
-    //             credentials: 'include',
-    //             headers: {
-    //                 'Accept': 'application/json',
-    //                 'Content-Type': 'application/json',
-    //                 'Access-Control-Allow-Credentials': true
-    //             },
-    //             body: JSON.stringify(this.state.data) 
-    //         }
-    //     )
-    //     .then(res => console.log(res));
-    // }
+    //const [loading, setLoading] = useState(true);
 
-  render() {
+    let inputRef = useRef([]);
+    inputRef.current = [0,0,0,0,0].map(
+        (ref, index) => inputRef.current[index] = React.createRef()
+    )
+    
+    async function fetchUrl(url, id) {
+        
+        await axios.get(`${url}?board_id=${id}`).then(response => {
+            setData(response.data);
+        });
+    }
 
+    useEffect(() => {
+        console.log("location.search");
+        console.log(location.search)
+        if (query.board_id) {
+            console.log("query.board_id")
+            console.log(query.board_id)
+            fetchUrl("/api/detail", query.board_id)
+        } else {
+            
+            setData({...data, title: '', url: ''});        
+        
+        
+            inputRef.current.map(item => 
+                item.current.value = ''
+            )
+                    
+        
+            console.log("else");
+        }
+        return () => {
+            console.log('return');
+            setData(null);
+        }
+    }, [location.search]);
+    
+
+    const handleChange = (e) => {
+        setData({[e.target.name]: e.target.value});
+    }
+
+    
     return (
         <div className='Write'>
             <form action="/api/write" method="post">
+                { 
+                    // data && location.search ? 
+                    // <input type='hidden' name="boardId" value={data.boardId} /> :
+                    // console.log(data)
+                    data && location.search && <input type='hidden' name="boardId" value={data.boardId} /> 
+                }
                 <div>
-                    <input type='text' id='title_txt' name='title' placeholder='제목'/>
+                    {
+                        data && location.search ? 
+                        //<div>{data.title}</div> :
+                        <input type='text' id='title_txt' name='title' value={data.title} onChange={handleChange} /> :
+                        <input ref={inputRef.current[0]} type='text' id='title_txt' name='title' placeholder='제목'/> 
+                    }
+                    
                 </div>
                 <div>
-                    <input type='url' id='link_txt' name='url' placeholder='링크'/>
+                    {
+                        data && location.search ? 
+                        <input type='url' id='link_txt' name='url' value={data.url} onChange={handleChange} /> :
+                        <input ref={inputRef.current[1]} type='url' id='link_txt' name='url' placeholder='링크'/> 
+                    }
                 </div>
                 <div>
-                    <textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>
+                    {
+                        data && location.search ? 
+                        <textarea id='ex_txt' name='content' value={data.content} onChange={handleChange}></textarea> :
+                        <textarea ref={inputRef.current[2]} id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea>    
+                    }
+                    {/* <textarea id='ex_txt' name='content' placeholder='설문내용에 대해 설명해주세요'></textarea> */}
                 </div>
                 <div>
                     시작일자&nbsp;&nbsp;
-                    <input type="date" name="start_date" id='date'/>&nbsp;&nbsp;
+                    {
+                        data && location.search ? 
+                        <input type="date" name="startDate" id='date' value={data.startDate} onChange={handleChange}/> :
+                        <input ref={inputRef.current[3]} type="date" name="startDate" id='date'/>
+                    }
+                    &nbsp;&nbsp;
+                    {/* <input type="date" name="startDate" id='date'/>&nbsp;&nbsp; */}
                     마감일자&nbsp;&nbsp;
-                    <input type="date" name="end_date" id='date'/>
+                    {
+                        data && location.search ? 
+                        <input type="date" name="endDate" id='date' value={data.endDate} onChange={handleChange} /> :
+                        <input ref={inputRef.current[4]} type="date" name="endDate" id='date'/>    
+                    }
+                    {/* <input type="date" name="endDate" id='date'/> */}
                 </div>
                 <div id="submit_btn">
                     <button type="submit">저장</button>&nbsp;&nbsp;
                     <button>취소</button>
                 </div>
             </form>
-            {/* <button onClick={this.testPost}>testpost</button> */}
         </div>
     );
-  }
 }
 
-export default write;
+export default Write;

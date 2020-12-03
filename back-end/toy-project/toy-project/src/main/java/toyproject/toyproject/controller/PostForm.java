@@ -4,8 +4,8 @@ public class PostForm {
     private String title;
     private String url;
     private String content;
-    private String start_date;
-    private String end_date;
+    private String startDate;
+    private String endDate;
 
     public String getTitle() {
         return title;
@@ -31,19 +31,19 @@ public class PostForm {
         this.content = content;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public String getEnd_date() {
-        return end_date;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

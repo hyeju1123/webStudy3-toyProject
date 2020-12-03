@@ -7,6 +7,7 @@ function useFetch(url) {
     async function fetchUrl() {
         const response = await fetch(url);
         const json = await response.json();
+        
         setData(json);
     }
     useEffect(() => {
@@ -24,6 +25,7 @@ function List() {
 
     return (
         <main className="list-template">
+            
             <div className="list-title">
                 폼 게시판
             </div>
@@ -42,9 +44,27 @@ function List() {
                             title={title}
                             start_date={start_date}
                             end_date={end_date}
+                            key={board_id}
                         />
                     )
                 )}
+                {/* {data.map(
+                    ({board_id, title, start_date, end_date}) => (
+                        <Route
+                            path="/"
+                            exact
+                            render={() => 
+                                <ListItem
+                                    board_id={board_id}
+                                    title={title}
+                                    start_date={start_date}
+                                    end_date={end_date}
+                                    history={history}
+                                />
+                            }
+                        />
+                    )
+                )} */}
             </section>
             
         </main>
