@@ -2,6 +2,7 @@ package toyproject.toyproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import toyproject.toyproject.domain.PostingDTO;
 import toyproject.toyproject.mapper.PostingRepository;
 
@@ -24,5 +25,10 @@ public class PostingService {
 
     public void insertPosting(PostingDTO postingDTO) {
         postingRepository.insertPosting(postingDTO);
+    }
+
+    @Transactional
+     public void deletePosting(Long board_id){
+        postingRepository.deletePosting(board_id);
     }
 }

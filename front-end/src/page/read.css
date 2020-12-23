@@ -1,42 +1,46 @@
 .Read {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 1rem;
-    padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 .read_title {
-    margin-top: 2rem;
-    font-size: 27px;
+  margin-top: 2rem;
+  font-size: 27px;
 }
 
 table {
-    width: 100%;
-    margin-top: 20px;
-    border: solid 3px #232B43;
-    border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  border: solid 3px #232b43;
+  border-collapse: collapse;
 }
 
-th, td {
-    border: solid 2px #232B43;
-    padding: 10px;
+th,
+td {
+  border: solid 2px #232b43;
+  padding: 10px;
 }
 
 .table_info {
-
 }
 
-.return_btn{
-    margin-top: 10px;
-    text-align: center;
+.return_btn {
+  margin-top: 10px;
+  text-align: center;
 }
 
-.ud_btn{
-    margin-top: 10px;
-    text-align: right;
+.ud_btn {
+  margin-top: 10px;
+  text-align: right;
 }
 
-.btn1{
-    width: 80px;
-    margin-left: 20px;
+.btn1 {
+  width: 80px;
+  margin-left: 20px;
+}
+
+#delete-form {
+  display: inline-block;
 }

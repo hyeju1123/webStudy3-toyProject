@@ -13,4 +13,6 @@ public interface PostingRepository {
     List<PostingDTO> getPosting();
 
     void insertPosting(PostingDTO params);
+
+    void deletePosting(Long board_id);
 }

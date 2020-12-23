@@ -17,4 +17,7 @@
     <select id="getPosting" resultType="java.util.HashMap">
         SELECT * FROM board;
     </select>
+    <delete id="deletePosting" parameterType="java.lang.Long">
+        DELETE FROM board where board_id = #{board_id}
+    </delete>
 </mapper>
