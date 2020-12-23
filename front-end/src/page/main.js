@@ -3,10 +3,14 @@ import List from './List';
 
 class main extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>
-                <List></List>
+                <List />
             </div>
         );
     }

@@ -23,8 +23,17 @@ public class PostingService {
         return postingRepository.getPosting();
     }
 
+    public PostingDTO getPostingDetail(Long board_id) {
+        return postingRepository.selectPostingDetail(board_id);
+    }
+
     public void insertPosting(PostingDTO postingDTO) {
-        postingRepository.insertPosting(postingDTO);
+
+        if (postingDTO.getBoardId() == null) {
+            postingRepository.insertPosting(postingDTO);
+        } else {
+            postingRepository.updatePosting(postingDTO);
+        }
     }
 
     @Transactional

@@ -9,10 +9,13 @@ import java.util.List;
 @Mapper
 @Repository
 public interface PostingRepository {
-    //List<Map<String, Object>> getPosting();
+    void insertPosting(PostingDTO params);
+
     List<PostingDTO> getPosting();
 
-    void insertPosting(PostingDTO params);
+    PostingDTO selectPostingDetail(Long board_id);
+
+    void updatePosting(PostingDTO params);
 
     void deletePosting(Long board_id);
 }

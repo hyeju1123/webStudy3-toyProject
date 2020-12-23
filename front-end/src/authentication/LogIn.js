@@ -15,6 +15,7 @@ function LogIn() {
 
     return (
         <div className="login-template">
+        
             <div className="title">
                 User Login
             </div>

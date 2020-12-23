@@ -1,16 +1,19 @@
 package toyproject.toyproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import toyproject.toyproject.domain.PostingDTO;
 import toyproject.toyproject.service.PostingService;
 
-import java.nio.file.Path;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class PostingController {
@@ -18,31 +21,26 @@ public class PostingController {
     @Autowired
     private PostingService postingService;
 
-//    @GetMapping("/api/posting")
-//    public List<Map<String, Object>> getPosting() {
-//        return postingService.getPosting();
-//    }
-
     @GetMapping("/api/list")
-    public List<PostingDTO> getPosting(Model model) {
+    public List<PostingDTO> getPosting() {
         List<PostingDTO> boardList = postingService.getPosting();
         return boardList;
     }
 
-    @PostMapping("/api/write")
-    public String insertPosting(PostForm postForm) {
-
-        PostingDTO postingDTO = new PostingDTO();
-        postingDTO.setTitle(postForm.getTitle());
-        postingDTO.setUrl(postForm.getUrl());
-        postingDTO.setContent(postForm.getContent());
-        postingDTO.setStart_date(postForm.getStart_date());
-        postingDTO.setEnd_date(postForm.getEnd_date());
-
-        postingService.insertPosting(postingDTO);
-
-        return "redirect:/";
+    @GetMapping("/api/detail")
+    public PostingDTO getPostingDetail(@RequestParam(value = "board_id", required = false) Long idx) {
+        System.out.println(idx);
+        PostingDTO detail = postingService.getPostingDetail(idx);
+        return detail;
     }
+
+    @PostMapping("/api/write")
+    public void insertPosting(PostingDTO params, HttpServletResponse response) throws IOException {
+        postingService.insertPosting(params);
+        //return "redirect:/";
+        response.sendRedirect("/");
+    }
+
 
     @DeleteMapping("/api/list/{board_id}")
     public String deletePosting(@PathVariable Long board_id){
@@ -51,4 +49,13 @@ public class PostingController {
         return "redirect:/";
     }
 
+
+    @GetMapping(value = "/api/write")
+    public PostingDTO openBoardWrite(@RequestParam(value = "board_id", required = false) Long idx) {
+        if (idx == null) {
+            return null;
+        } else {
+            return postingService.getPostingDetail(idx);
+        }
+    }
 }
