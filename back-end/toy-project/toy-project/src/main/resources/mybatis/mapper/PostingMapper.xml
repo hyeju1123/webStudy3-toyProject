@@ -7,6 +7,11 @@
     <sql id="boardColumns">
         board_id, title, url, content, start_date, end_date
     </sql>
+ 
+
+
+
+
     <insert id="insertPosting" parameterType="toyproject.toyproject.domain.PostingDTO">
         INSERT INTO board (
             <include refid="boardColumns"></include>

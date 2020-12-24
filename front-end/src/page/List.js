@@ -53,12 +53,6 @@ class List extends Component {
                   start_date={list.start_date}
                   end_date={list.end_date}
                 />
-                <button
-                  className="delete-btn"
-                  onClick={() => this.remove(list.board_id)}
-                >
-                  삭제
-                </button>
               </>
             );
           })}

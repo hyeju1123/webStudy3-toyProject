@@ -32,6 +32,9 @@ td {
 }
 
 .ud_btn {
+  display: flex;
+  width: 200px;
+  margin-left: auto;
   margin-top: 10px;
   text-align: right;
 }

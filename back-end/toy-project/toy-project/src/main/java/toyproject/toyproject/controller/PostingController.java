@@ -3,6 +3,8 @@ package toyproject.toyproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import toyproject.toyproject.domain.PostingDTO;
 import toyproject.toyproject.service.PostingService;
 
@@ -20,6 +22,7 @@ public class PostingController {
 
     @Autowired
     private PostingService postingService;
+
 
     @GetMapping("/api/list")
     public List<PostingDTO> getPosting() {
