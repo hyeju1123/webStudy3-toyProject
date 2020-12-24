@@ -76,7 +76,7 @@ const Detail = ({ location }) => {
     return (
       <div className="Read">
         <div className="list-title">폼 게시판</div>
-        <div className="read_title">OOOO 관련 설문조사 입니다.</div>
+        <div className="read_title">{data.title}</div>
         <table>
           <tbody>
             <tr align="center" className="table_info">
@@ -111,9 +111,15 @@ const Detail = ({ location }) => {
             </button>
           </DelayLink>
         </div>
-        <div className="return_btn">
-          <button>목록으로 돌아가기</button>
-        </div>
+        <Link
+          to={{
+            pathname: "/",
+          }}
+        >
+          <div className="return_btn">
+            <button>목록으로 돌아가기</button>
+          </div>
+        </Link>
       </div>
     );
   }
