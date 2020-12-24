@@ -54,7 +54,7 @@ const Detail = ({ location }) => {
                 폼 게시판
                 </div>
                 <div className='read_title'>
-                    OOOO 관련 설문조사 입니다.
+                    {data.title}
                 </div>
                 <table> 
                 <tbody>
@@ -85,7 +85,11 @@ const Detail = ({ location }) => {
                 <button className='btn1'>삭제</button>
                 </div>
                 <div className='return_btn'>
-                <button>목록으로 돌아가기</button>
+                <Link to={{
+                    pathname:"/",
+                }}>
+                    <button>목록으로 돌아가기</button> 
+                </Link>
                 </div>
             </div>
         )
