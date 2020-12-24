@@ -22,7 +22,8 @@ class header extends Component {
                   <Link className='link_select' to='/survey'> 설문조사 </Link> |
                   {/* <Link className='link_select' to='/qna' onClick={() => window.location.href="/qna"}> Q&A </Link> | */}
                   <Link className='link_select' to='/qna'> Q&A </Link> |
-                  <Link className='link_select' to='/login'> 로그인 </Link>  
+                  <Link className='link_select' to='/login'> 로그인 </Link> 
+                  <Link className='link_select' to='/signup'> 회원가입 </Link> 
               </div>
             </div>
         </div>
