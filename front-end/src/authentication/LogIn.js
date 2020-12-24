@@ -19,10 +19,11 @@ function LogIn() {
             <div className="title">
                 User Login
             </div>
-            <form action="/login" method="post">
+            <form action="/user/login" method="post">
                 <div className="input-wrapper">
-                    <input type="text" name="username" placeholder="username" />
-                    <input type="password" name="password" placeholder="password" />
+                    <input type="text" name="userID" placeholder="userID" />
+                    <input type="password" name="userPW" placeholder="password" />
+                    회원이 아니시라면 회원가입 후 로그인 해주세요.
                 </div>
                 <button type="submit">Sign In</button>
             </form>
